@@ -32,7 +32,7 @@ export async function loader() {
 export function Component() {
   const users = useLoaderData() as Awaited<ReturnType<typeof loader>>
   return (
-    <div>
+    <div className='w-full box-border'>
       <Header user={users[0]} />
       <Outlet />
       <Footer />
@@ -42,7 +42,20 @@ export function Component() {
 
 function Header(props: { user: User }) {
   const { user } = props
-  return <header>{user.username}</header>
+  return (
+    <header className="flex items-center justify-between bg-blue-500 text-white p-6">
+      <div>
+        <p className="font-bold text-lg">{user.name}</p>
+        <p>{user.username}</p>
+        <p>{user.email}</p>
+      </div>
+      <div>
+        <p>{user.company.name}</p>
+        <p>{user.address.city}</p>
+        <p>{user.phone}</p>
+      </div>
+    </header>
+  )
 }
 
 function Footer() {

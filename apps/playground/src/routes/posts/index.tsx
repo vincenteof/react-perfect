@@ -28,10 +28,13 @@ export function Component() {
 function PostsSidebar(props: { posts: PostItem[] }) {
   const { posts } = props
   return (
-    <aside>
-      <ul>
+    <aside className="bg-gray-200 p-4 text-left max-w-sm">
+      <ul className="space-y-2">
         {posts.map((post) => (
-          <li key={post.id}><NavLink to={`${post.id}`}>{post.title}</NavLink></li>
+          <li key={post.id} className="border p-2">
+            <NavLink to={`${post.id}`}className="font-bold">{post.title}</NavLink>
+            <p>{post.body.substring(0, 50)}...</p>
+          </li>
         ))}
       </ul>
     </aside>
