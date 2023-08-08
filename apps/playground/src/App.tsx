@@ -11,6 +11,7 @@ const router = createBrowserRouter(
     <Route path="/" lazy={() => import('./routes/root')}>
       <Route path="posts" lazy={() => import('./routes/posts')}>
         <Route path=":postId" lazy={() => import('./routes/post')} />
+        <Route index lazy={() => import('./routes/post/default')} />
       </Route>
     </Route>
   )

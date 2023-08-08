@@ -20,7 +20,7 @@ export async function loader(args: LoaderFunctionArgs) {
 export function Component() {
   const post = useLoaderData() as Awaited<ReturnType<typeof loader>>
   return (
-    <div>
+    <div className='p-4'>
       <h3>{post.title}</h3>
     </div>
   )
